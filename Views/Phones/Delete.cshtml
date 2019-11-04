@@ -1,15 +1,15 @@
 ﻿@model LabWork13.Models.Phone
 
 @{
-    ViewBag.Title = "Delete";
+    ViewBag.Title = "Удаление телефонного номера";
 }
 
-<h2>Delete</h2>
+<h2>@ViewBag.Title</h2>
 
-<h3>Are you sure you want to delete this?</h3>
+<hr />
+
+<h5 class="text-danger">Вы действительно хотите удалить этот номер?</h5>
 <div>
-    <h4>Phone</h4>
-    <hr />
     <dl class="dl-horizontal">
         <dt>
             @Html.DisplayNameFor(model => model.LastName)
@@ -53,12 +53,13 @@
 
     </dl>
 
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+            <input type="submit" value="Удалить" class="btn btn-success" />
+            @Html.ActionLink("Назад", "Browse", null, new { @class = "btn btn-danger" })
         </div>
     }
 </div>

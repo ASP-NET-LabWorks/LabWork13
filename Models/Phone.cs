@@ -21,7 +21,7 @@ namespace LabWork13.Models
 
         [Required, Display(Name = "Дата рождения"), DataType(DataType.Date)]
         [DateOfBirthValidator(MaxAge = 120)]
-        [DisplayFormat(DataFormatString = "{0:d}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime DateOfBirth { get; set; }
 
         [Required, Display(Name = "Телефонный номер"), MaxLength(10), Index(IsUnique = true)]
@@ -42,7 +42,7 @@ namespace LabWork13.Models
             {
                 var date = DateTime.Parse(value.ToString());
                 var currentDate = DateTime.Now;
-                if (date < currentDate && date > currentDate.AddYears(-MaxAge))
+                if (date.Date < currentDate.Date && date.Date > currentDate.AddYears(-MaxAge).Date)
                     return ValidationResult.Success;
                 throw new Exception();
             }

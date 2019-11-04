@@ -4,11 +4,11 @@
     ViewBag.Title = "Список телефонных номеров";
 }
 
-    <h2>@ViewBag.Title</h2>
-
+<h2>@ViewBag.Title</h2>
 <p>
     @Html.ActionLink("Добавить номер", "Create", null, new { @class = "btn btn-success" })
 </p>
+
 <table class="table table-striped table-hover">
     <thead>
         <tr>
@@ -27,7 +27,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.Number)
             </th>
-            <th></th>
+            <th>Действия</th>
         </tr>
     </thead>
     <tbody>

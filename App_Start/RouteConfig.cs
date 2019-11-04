@@ -16,7 +16,7 @@ namespace LabWork13
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Phones", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Phones", action = "Browse", id = UrlParameter.Optional }
             );
         }
     }

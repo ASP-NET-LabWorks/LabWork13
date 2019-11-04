@@ -15,24 +15,9 @@ namespace LabWork13.Controllers
         private PhoneDbContext db = new PhoneDbContext();
 
         // GET: Phones
-        public ActionResult Index()
+        public ActionResult Browse()
         {
             return View(db.Phones.ToList());
-        }
-
-        // GET: Phones/Details/5
-        public ActionResult Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Phone phone = db.Phones.Find(id);
-            if (phone == null)
-            {
-                return HttpNotFound();
-            }
-            return View(phone);
         }
 
         // GET: Phones/Create
@@ -52,7 +37,7 @@ namespace LabWork13.Controllers
             {
                 db.Phones.Add(phone);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Browse");
             }
 
             return View(phone);
@@ -84,7 +69,7 @@ namespace LabWork13.Controllers
             {
                 db.Entry(phone).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Browse");
             }
             return View(phone);
         }
@@ -112,7 +97,7 @@ namespace LabWork13.Controllers
             Phone phone = db.Phones.Find(id);
             db.Phones.Remove(phone);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Browse");
         }
 
         protected override void Dispose(bool disposing)
